@@ -1,0 +1,7 @@
+catboost
+duckdb
+ipykernel
+jupyterlab
+matplotlib
+pandas
+scikit-learn
