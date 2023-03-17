@@ -1,3 +1,3 @@
-# Data Validation for Machine Learning Techniques
+# Data Validation Techniques for Machine Learning
 
 TODO: fill out.
