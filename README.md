@@ -22,9 +22,7 @@ The data may take a while to download, since it is 7.0 GB.
 
 - [x] Scaffold: continuous training pipeline
 - [x] Scaffold: synthetic corruptions that cause MSE to increase/performance drop
-- [ ] Scaffold: black box data validation method
-- [ ] Data quality statistics
-- [ ] Schema validation with TFX
+- [x] Schema validation with TFX
 - [ ] Inter-batch data validation: distance measures
 - [ ] GATE
 - [ ] Instrument with logging and alerts via wandb

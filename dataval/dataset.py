@@ -157,3 +157,15 @@ class WeatherDataset(object):
             sensor_cols,
         ] = pinned_value
         return copy, sensor_cols
+
+    @staticmethod
+    def iterate_corruptions(df, sensor_group, **kwargs):
+        for corruption in [
+            WeatherDataset.corrupt_null,
+            WeatherDataset.corrupt_nonnegative,
+            WeatherDataset.corrupt_typecheck,
+            WeatherDataset.corrupt_units,
+            WeatherDataset.corrupt_average,
+            WeatherDataset.corrupt_pinned,
+        ]:
+            yield corruption.__name__, corruption(df, sensor_group, **kwargs)
