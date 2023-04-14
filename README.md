@@ -25,5 +25,5 @@ The data may take a while to download, since it is 7.0 GB.
 - [x] Schema validation with TFX
 - [x] Inter-batch data validation: distance measures
 - [ ] GATE
-- [ ] Instrument with logging and alerts via wandb
+- [x] Instrument with logging and alerts via wandb
 - [ ] Move notebooks to colab
