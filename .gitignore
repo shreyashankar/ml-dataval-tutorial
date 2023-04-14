@@ -3,3 +3,5 @@ catboost_info*
 .ipynb_checkpoints*
 *__pycache__*
 data-validation*
+wandb*
+*.DS_Store*
