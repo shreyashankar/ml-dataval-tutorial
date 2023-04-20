@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 
-class Trainer(object):
+class CatBoostTrainer(object):
     def __init__(self, hparams: dict):
         self.hparams = hparams
         if "random_seed" not in self.hparams:
@@ -17,13 +17,14 @@ class Trainer(object):
 
         self.model = catboost.CatBoostRegressor(**self.hparams)
 
-    def fit(self, X, y, verbose=False):
+    def fit(self, X, y, verbose=False, callbacks=None):
         # Split X and y into train and test
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, shuffle=False
         )
         self.model.fit(
-            X_train, y_train, verbose=verbose, eval_set=(X_test, y_test)
+            X_train, y_train, verbose=verbose, eval_set=(X_test, y_test),
+            callbacks=callbacks,
         )
 
     def predict(self, X):
