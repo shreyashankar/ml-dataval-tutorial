@@ -23,7 +23,10 @@ class CatBoostTrainer(object):
             X, y, test_size=0.2, shuffle=False
         )
         self.model.fit(
-            X_train, y_train, verbose=verbose, eval_set=(X_test, y_test),
+            X_train,
+            y_train,
+            verbose=verbose,
+            eval_set=(X_test, y_test),
             callbacks=callbacks,
         )
 

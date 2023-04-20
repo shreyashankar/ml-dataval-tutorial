@@ -3,6 +3,8 @@ import pandas as pd
 
 import random
 
+from dataval.train import CatBoostTrainer
+
 
 class WeatherDataset(object):
     def __init__(self, dir_path: str, sample_frac=0.1):
@@ -169,3 +171,30 @@ class WeatherDataset(object):
             WeatherDataset.corrupt_pinned,
         ]:
             yield corruption.__name__, corruption(df, sensor_group, **kwargs)
+
+    def train_and_test(self, train_df, test_df):
+        X_train, y_train = self.split_feature_label(train_df)
+
+        catboost_hparams = {
+            "depth": 5,
+            "iterations": 250,
+            "learning_rate": 0.03,
+            "loss_function": "RMSE",
+        }
+        continual_t = CatBoostTrainer(catboost_hparams)
+        continual_t.fit(X_train, y_train, verbose=False)
+        print(
+            f"Train MSE for partition {self.get_partition_key(train_df)}: {continual_t.score(X_train, y_train)}"
+        )
+
+        # Evaluate
+        X_test, y_test = self.split_feature_label(test_df)
+        print(
+            f"Test MSE for partition {self.get_partition_key(test_df)}: {continual_t.score(X_test, y_test)}"
+        )
+
+        return (
+            continual_t,
+            continual_t.score(X_train, y_train),
+            continual_t.score(X_test, y_test),
+        )
