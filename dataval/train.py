@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 
-class Trainer(object):
+class CatBoostTrainer(object):
     def __init__(self, hparams: dict):
         self.hparams = hparams
         if "random_seed" not in self.hparams:
