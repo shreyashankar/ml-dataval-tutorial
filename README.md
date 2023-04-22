@@ -2,7 +2,7 @@
 
 ## Installation
 
-You must be using Python 3.10 or later, and you must have `wget` and `bazelisk` installed. You can install `wget` and `bazelisk` with `brew`.
+You must be using Python 3.10 or later, and you must have `wget`. You can install `wget` with `brew`.
 
 You can install the required packages for this module with:
 
