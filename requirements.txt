@@ -3,7 +3,7 @@ duckdb
 ipykernel
 jupyterlab
 matplotlib
+modal-client
 pandas
 scikit-learn
-tensorflow_metadata
 gate-drift
