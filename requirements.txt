@@ -1,6 +1,7 @@
 catboost
 duckdb
 ipykernel
+ipywidgets
 jupyterlab
 matplotlib
 modal-client
@@ -8,5 +9,3 @@ numpy
 pandas
 scikit-learn
 gate-drift
-tensorflow-data-validation
-tensorflow-metadata
